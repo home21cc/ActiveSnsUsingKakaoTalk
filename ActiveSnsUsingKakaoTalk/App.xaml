@@ -1,0 +1,9 @@
+﻿<Application x:Class="ActiveSnsUsingKakaoTalk.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ActiveSnsUsingKakaoTalk"
+             StartupUri="StartPage.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
