@@ -18,5 +18,12 @@
         public const string KakaoTalkExpire = @"1440";
         public const string KakaoTalkEmail = @"support@biztalk.co.kr";
         public const string KakaoTalkTelephone = @"02-552-0093";
+
+        public const string CountryCode = "82";
+        public const string SenderKey = "";
+        public const string OrgCode = "총무";
+        public const string AdFlag = "N";
+        public const string Wide = "N";
+
     }
 }

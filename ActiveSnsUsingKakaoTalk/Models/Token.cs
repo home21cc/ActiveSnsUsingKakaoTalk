@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-using OSmartBaseLibrary;
+using ActiveBaseLibrary;
 
 using System;
 using System.Collections.Generic;
@@ -21,15 +21,16 @@ namespace ActiveSnsUsingKakaoTalk.Models
         }
 
         // Response Data
+#pragma warning disable IDE1006 // Naming Styles
         public class ResData
         {
             public string responseCode { get; set; }
             public string token { get; set; }
             public string msg { get; set; }
         }
+#pragma warning restore IDE1006 // Naming Styles
 
-        
-        private ReqData reqData = null;
+        private readonly ReqData reqData = null;
 
         // 생성자 
         public KakaoTokenModel()
@@ -39,10 +40,12 @@ namespace ActiveSnsUsingKakaoTalk.Models
 
         public KakaoTokenModel(string bsid, string password, string expire = "1440")
         {
-            reqData = new ReqData();
-            reqData.BsId = bsid;
-            reqData.Password = password;
-            reqData.Expire = expire;
+            reqData = new ReqData
+            {
+                BsId = bsid,
+                Password = password,
+                Expire = expire
+            };
         }
 
 

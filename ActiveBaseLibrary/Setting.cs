@@ -112,9 +112,15 @@ namespace ActiveBaseLibrary
                 new DefaultValue() { KeyName="KakaoTalkServer",     KeyValue=SettingDefault.KakaoTalkAPIServer},
                 new DefaultValue() { KeyName="KakaoTalkId",         KeyValue=SettingDefault.KakaoTalkID},
                 new DefaultValue() { KeyName="KakaoTalkPassword",   KeyValue=SettingDefault.KakaoTalkPassword},
-                new DefaultValue() { KeyName="KakaoTalkExpire",   KeyValue=SettingDefault.KakaoTalkExpire},
+                new DefaultValue() { KeyName="KakaoTalkExpire",     KeyValue=SettingDefault.KakaoTalkExpire},
                 new DefaultValue() { KeyName="KakaoTalkEmail",      KeyValue=SettingDefault.KakaoTalkEmail},
-                new DefaultValue() { KeyName="KakaoTalkTelephone",  KeyValue=SettingDefault.KakaoTalkTelephone}
+                new DefaultValue() { KeyName="KakaoTalkTelephone",  KeyValue=SettingDefault.KakaoTalkTelephone},
+
+                new DefaultValue() { KeyName="CountryCode",         KeyValue=SettingDefault.CountryCode },
+                new DefaultValue() { KeyName="SenderKey",           KeyValue=SettingDefault.SenderKey },
+                new DefaultValue() { KeyName="OrgCode",             KeyValue=SettingDefault.OrgCode },
+                new DefaultValue() { KeyName="AdFlg",               KeyValue=SettingDefault.AdFlag },
+                new DefaultValue() { KeyName="Wide",                KeyValue=SettingDefault.Wide },
             };
             return result;
         }
