@@ -5,121 +5,121 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="KakaoFriendTalk" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="GridBackground" Margin="8">
         <Grid.RowDefinitions>
             <RowDefinition Height="2"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="2"/>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="2"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="124"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="2"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid.ColumnDefinitions/>
+        <Grid x:Name="GridConnect" Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions/>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Connection State" HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="LblConnect" Content="Connection State" HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="0"/>
             <Button x:Name="BtnConnect" Content="재접속"  HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="1" Click="BtnConnect_Click"/>
             <Button x:Name="BtnExit" Content="종료"  HorizontalAlignment ="Stretch" Grid.Row="1" Grid.Column="2" Click="BtnExit_Click"/>
         </Grid>
-
-        <StackPanel x:Name="PanelState" Grid.Row="3" Grid.Column="1">
+        <Border x:Name="BorderConnectInfo" Grid.Row="3" Grid.Column="0">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="2"/>
                     <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="110"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="300"/>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="100"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="User Id:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
-                <TextBox x:Name="txtBsId" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
-                <Label Content="Password:" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right"/>
-                <TextBox x:Name="txtPassword" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
-                <Label Content="Expire:" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right"/>
-                <TextBox x:Name="txtExpire" Grid.Row="0" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
-            </Grid>
-            <Grid>
-                <Grid.RowDefinitions>
+                    <RowDefinition Height="2"/>
+                    <RowDefinition Height="52"/>
+                    <RowDefinition Height="2"/>
                     <RowDefinition Height="30"/>
+                    <RowDefinition Height="2"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="110"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="Response Token:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
-                <TextBox x:Name="txtToken" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" IsEnabled="False"/>
+                <Grid.ColumnDefinitions/>
+                <Grid x:Name="GridUserInfo" Grid.Row="1" Grid.Column="0">
+                    <Grid.RowDefinitions/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="User Id:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
+                    <TextBox x:Name="txtBsId" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+                    <Label Content="Password:" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right"/>
+                    <TextBox x:Name="txtPassword" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+                    <Label Content="Expire:" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right"/>
+                    <TextBox x:Name="txtExpire" Grid.Row="0" Grid.Column="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+                </Grid>
+                <Grid x:Name="GridTokenInfo" Grid.Row="3" Grid.Column="0">
+                    <Grid.RowDefinitions/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Response Token:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
+                    <TextBox x:Name="txtToken" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" IsEnabled="False" TextWrapping="Wrap"/>
+                </Grid>
+                <Grid x:Name="GridStateInfo" Grid.Row="5" Grid.Column="0">
+                    <Grid.RowDefinitions/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Response Code:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
+                    <TextBox x:Name="txtRCode" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" IsEnabled="False"/>
+                </Grid>
             </Grid>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="110"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="Response Code:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
-                <TextBox x:Name="txtRCode" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" IsEnabled="False"/>
-                
-            </Grid>
-        </StackPanel>
-        <Grid Grid.Row="5" Grid.Column="1">
+        </Border>
+        
+        <Grid x:Name="GridMessage" Grid.Row="5" Grid.Column="0">
             <Grid.RowDefinitions/>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Message" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="LblMessage" Content="Message" Grid.Row="0" Grid.Column="0"/>
             <Button x:Name="BtnSend" Content="전송"  HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="1"/>
         </Grid>
-
-        <Grid x:Name="GridContent" Grid.Row="7" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="200"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Grid.RowDefinitions/>
+        <Border x:Name="BorderContentInfo" Grid.Row="7" Grid.Column="0">
+            <Grid x:Name="GridContentInfo">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Target user" Grid.Row="0" Grid.Column="0"/>
-                <CheckBox Content="All" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" IsChecked="True"/>
-            </Grid>
-            <Label Content="Text" Grid.Row="0" Grid.Column="1"/>
-            <ListView x:Name="LViewUser" Grid.Row="1" Grid.Column="0"/>
-            
-            <TextBox x:Name="TBoxMessage" Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalAlignment="Stretch" TextWrapping="Wrap" MaxLength="1000"/>
-            
-            <Label Content="Attach File" Grid.Row="3" Grid.Column="0"/>
-            <Label Content="Image" Grid.Row="3" Grid.Column="1" />
-            <ListBox x:Name="LBoxAttach" Grid.Row="4" Grid.Column="0"/>
-            <Border x:Name="BorderAttach" Grid.Row="4" Grid.Column="1" BorderThickness="1" >
-                <Image x:Name="ImgAttach"/>
-            </Border>
+                <Grid x:Name="GridUserLabel" Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Target user" Grid.Row="0" Grid.Column="0"/>
+                    <CheckBox Content="All" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" IsChecked="True"/>
+                </Grid>
+                <Label Content="Text" Grid.Row="0" Grid.Column="1"/>
+                <ListView x:Name="LViewUser" Grid.Row="1" Grid.Column="0"/>
+                <TextBox x:Name="TBoxMessage" Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalAlignment="Stretch" TextWrapping="Wrap" MaxLength="1000"/>
+                <Label Content="Attach File" Grid.Row="3" Grid.Column="0"/>
+                <Label Content="Image" Grid.Row="3" Grid.Column="1" />
+                <ListBox x:Name="LBoxAttach" Grid.Row="4" Grid.Column="0"/>
+                <Image x:Name="ImgAttach" Grid.Row="4" Grid.Column="1"/>
         </Grid>
+        </Border>
     </Grid>
+    
 </Window>

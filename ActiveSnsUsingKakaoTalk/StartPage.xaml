@@ -5,33 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ActiveSnsUsingKakaoTalk"
         mc:Ignorable="d"
-        Title="StartPage" Height="200" Width="440">
-    <StackPanel Margin="8">
-        <Grid Height="100" x:Name="GridHeader">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
+        Title="TKBend Login" Height="212" Width="440">
+    <Grid x:Name="GridHeader" Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions/>
+        <Grid x:Name="GridIdentification" Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions/>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="10" />
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="1" Grid.Row="1" Content="Identification :" />
-            <Label Grid.Column="1" Grid.Row="3" Content="Password :"/>
-            <TextBox x:Name="TbIdentification" Grid.Column="3" Grid.Row="1"/>
-            <PasswordBox x:Name="PbPassword" Grid.Column="3" Grid.Row="3"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="Identification :" />
+            <TextBox x:Name="TbIdentification" Grid.Row="0" Grid.Column="3"/>
         </Grid>
-        <Grid Height="50">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="10" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="20" />
-            </Grid.RowDefinitions>
+        <Grid x:Name="GridPassword" Grid.Row="3" Grid.Column="0">
+            <Grid.RowDefinitions/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" Content="Password :"/>
+            <PasswordBox x:Name="PbPassword" Grid.Row="0" Grid.Column="3"/>
+        </Grid>
+        <Grid x:Name="GridCommand" Grid.Row="5" Grid.Column="0">
+            <Grid.RowDefinitions/>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="100" />
@@ -41,9 +52,10 @@
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="BtnStart" Grid.Column="1" Grid.Row="1" Content="Start" Click="BtnStart_Click"/>
-            <Button x:Name="BtnCancel" Grid.Column="3" Grid.Row="1" Content="Cancel" Click="BtnCancel_Click"/>
-            <Button x:Name="BtnSetting" Grid.Column="5" Grid.Row="1" Content="Setting" Click="BtnSetting_Click"/>
+            <Button x:Name="BtnStart" Grid.Row="0" Grid.Column="1" Content="Start" Click="BtnStart_Click"/>
+            <Button x:Name="BtnCancel" Grid.Row="0" Grid.Column="3" Content="Cancel" Click="BtnCancel_Click"/>
+            <Button x:Name="BtnSetting" Grid.Row="0" Grid.Column="5" Content="Setting" Click="BtnSetting_Click"/>
         </Grid>
-    </StackPanel>
+    </Grid>
+    
 </Window>

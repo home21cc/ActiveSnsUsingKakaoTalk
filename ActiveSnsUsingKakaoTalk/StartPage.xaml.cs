@@ -24,6 +24,7 @@ namespace ActiveSnsUsingKakaoTalk
             this.Left = (screenWidth / 2) - (this.Width / 2);
             this.Top = (screenHeigth / 2) - (this.Height / 2);
             GridHeader.Style = FindResource("StyleBodyGrid") as Style;
+            GridCommand.Style = FindResource("StyleBodyGrid") as Style;
             PbPassword.Style = FindResource("StylePassword") as Style;
         }
 

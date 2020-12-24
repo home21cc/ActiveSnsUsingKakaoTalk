@@ -39,7 +39,8 @@ namespace ActiveSnsUsingKakaoTalk
 
             // Grid - Header
             Style StyleGrayGrid = new Style(typeof(Grid));
-            StyleGrayGrid.Setters.Add(new Setter { Property = Grid.BackgroundProperty, Value = Brushes.LightGray });
+            StyleGrayGrid.Setters.Add(new Setter { Property = Grid.BackgroundProperty, Value = Brushes.Gray });
+            StyleGrayGrid.Setters.Add(new Setter { Property = Grid.MarginProperty, Value = new Thickness(1,1,1,1) });
             this.Resources.Add("StyleGrayGrid", StyleGrayGrid);
 
             // Grid - Normal
@@ -58,12 +59,12 @@ namespace ActiveSnsUsingKakaoTalk
             // Label - Bold
             Style StyleBoldLabel = new Style(typeof(Label));
             StyleBoldLabel.Setters.Add(new Setter { Property = Label.FontWeightProperty, Value = FontWeights.Bold });
-            StyleBoldLabel.Setters.Add(new Setter { Property = Label.FontSizeProperty, Value = Convert.ToDouble(20) });
+            StyleBoldLabel.Setters.Add(new Setter { Property = Label.FontSizeProperty, Value = Convert.ToDouble(18) });
             StyleBoldLabel.Setters.Add(new Setter { Property = Label.HorizontalContentAlignmentProperty, Value = HorizontalAlignment.Left });
             StyleBoldLabel.Setters.Add(new Setter { Property = Label.HorizontalAlignmentProperty, Value = HorizontalAlignment.Stretch });
             StyleBoldLabel.Setters.Add(new Setter { Property = Label.BackgroundProperty, Value = Brushes.Transparent });
             StyleBoldLabel.Setters.Add(new Setter { Property = Label.ForegroundProperty, Value = Brushes.Black });
-            StyleBoldLabel.Setters.Add(new Setter { Property = Label.HeightProperty, Value = Convert.ToDouble(40) });
+            StyleBoldLabel.Setters.Add(new Setter { Property = Label.HeightProperty, Value = Convert.ToDouble(35) });
             this.Resources.Add("StyleBoldLabel", StyleBoldLabel);
 
             // Label - Normal
