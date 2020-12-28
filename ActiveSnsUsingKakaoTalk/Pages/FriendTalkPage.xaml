@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="LblConnect" Content="Connection State" HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="0"/>
-            <Button x:Name="BtnConnect" Content="재접속"  HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="1" Click="BtnConnect_Click"/>
+            <Button x:Name="BtnReConnect" Content="재접속"  HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="1" Click="BtnReConnect_Click"/>
             <Button x:Name="BtnExit" Content="종료"  HorizontalAlignment ="Stretch" Grid.Row="1" Grid.Column="2" Click="BtnExit_Click"/>
         </Grid>
         <Border x:Name="BorderConnectInfo" Grid.Row="3" Grid.Column="0">
@@ -86,7 +86,7 @@
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="LblMessage" Content="Message" Grid.Row="0" Grid.Column="0"/>
-            <Button x:Name="BtnSend" Content="전송"  HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="1"/>
+            <Button x:Name="BtnSendFriendTalk" Content="전송"  HorizontalAlignment ="Stretch" Grid.Row="0" Grid.Column="1" Click="BtnSendFriendTalk_Click"/>
         </Grid>
         <Border x:Name="BorderContentInfo" Grid.Row="7" Grid.Column="0">
             <Grid x:Name="GridContentInfo">
@@ -112,11 +112,11 @@
                     <CheckBox Content="All" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" IsChecked="True"/>
                 </Grid>
                 <Label Content="Text" Grid.Row="0" Grid.Column="1"/>
-                <ListView x:Name="LViewUser" Grid.Row="1" Grid.Column="0"/>
-                <TextBox x:Name="TBoxMessage" Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalAlignment="Stretch" TextWrapping="Wrap" MaxLength="1000"/>
+                <ListView x:Name="Lvwser" Grid.Row="1" Grid.Column="0"/>
+                <TextBox x:Name="TbxMessage" Grid.Row="1" Grid.Column="1" IsEnabled="True" HorizontalAlignment="Stretch" TextWrapping="Wrap" MaxLength="1000"/>
                 <Label Content="Attach File" Grid.Row="3" Grid.Column="0"/>
                 <Label Content="Image" Grid.Row="3" Grid.Column="1" />
-                <ListBox x:Name="LBoxAttach" Grid.Row="4" Grid.Column="0"/>
+                <ListBox x:Name="LbxAttach" Grid.Row="4" Grid.Column="0"/>
                 <Image x:Name="ImgAttach" Grid.Row="4" Grid.Column="1"/>
         </Grid>
         </Border>

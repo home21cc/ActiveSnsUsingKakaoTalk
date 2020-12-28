@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActiveSnsUsingKakaoTalk", "ActiveSnsUsingKakaoTalk\ActiveSnsUsingKakaoTalk.csproj", "{CCA31C8D-50DE-46FE-B6CF-1C2971A77930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveBaseLibrary", "ActiveBaseLibrary\ActiveBaseLibrary.csproj", "{29C3FC20-4245-4433-A887-80309BC306A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActiveBaseLibrary", "ActiveBaseLibrary\ActiveBaseLibrary.csproj", "{29C3FC20-4245-4433-A887-80309BC306A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCommonLibrary", "ActiveCommonLibrary\ActiveCommonLibrary.csproj", "{9B0250C8-14CF-482C-A4E1-F90DC99A12E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{29C3FC20-4245-4433-A887-80309BC306A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29C3FC20-4245-4433-A887-80309BC306A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29C3FC20-4245-4433-A887-80309BC306A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B0250C8-14CF-482C-A4E1-F90DC99A12E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0250C8-14CF-482C-A4E1-F90DC99A12E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0250C8-14CF-482C-A4E1-F90DC99A12E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0250C8-14CF-482C-A4E1-F90DC99A12E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

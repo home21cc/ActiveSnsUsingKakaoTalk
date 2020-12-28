@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ActiveSnsUsingKakaoTalk.Models
 {
-    class AlimTalk
+    class BizTalkAlimModel
     {
     }
 }

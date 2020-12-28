@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace ActiveBaseLibrary
+namespace ActiveCommonLibrary
 {
     internal class DefaultValue : object
     {
@@ -109,17 +109,20 @@ namespace ActiveBaseLibrary
                 new DefaultValue() { KeyName="AppJsonFileName",     KeyValue=SettingDefault.AppJsonFileName},
                 new DefaultValue() { KeyName="Administrator",       KeyValue=SettingDefault.Adminstartor},
                 new DefaultValue() { KeyName="AdminPassword",       KeyValue=SettingDefault.AdminPassword},
-                new DefaultValue() { KeyName="KakaoTalkServer",     KeyValue=SettingDefault.KakaoTalkAPIServer},
-                new DefaultValue() { KeyName="KakaoTalkId",         KeyValue=SettingDefault.KakaoTalkID},
-                new DefaultValue() { KeyName="KakaoTalkPassword",   KeyValue=SettingDefault.KakaoTalkPassword},
-                new DefaultValue() { KeyName="KakaoTalkExpire",     KeyValue=SettingDefault.KakaoTalkExpire},
-                new DefaultValue() { KeyName="KakaoTalkEmail",      KeyValue=SettingDefault.KakaoTalkEmail},
-                new DefaultValue() { KeyName="KakaoTalkTelephone",  KeyValue=SettingDefault.KakaoTalkTelephone},
+                new DefaultValue() { KeyName="BizTalkServer",       KeyValue=SettingDefault.BizTalkAPIServer},
+                new DefaultValue() { KeyName="BizTalkUserId",       KeyValue=SettingDefault.BizTalkUserID},
+                new DefaultValue() { KeyName="BizTalkPassword",     KeyValue=SettingDefault.BizTalkPassword},
+                new DefaultValue() { KeyName="BizTalkToken",        KeyValue=SettingDefault.BizTalkToken },
+                new DefaultValue() { KeyName="BizTalkExpire",       KeyValue=SettingDefault.BizTalkExpire},
 
-                new DefaultValue() { KeyName="CountryCode",         KeyValue=SettingDefault.CountryCode },
+                new DefaultValue() { KeyName="BizTalkAttachPath",   KeyValue=SettingDefault.BizTalkAttachPath},
+                new DefaultValue() { KeyName="BizTalkEmail",        KeyValue=SettingDefault.BizTalkEmail},
+                new DefaultValue() { KeyName="BizTalkTelephone",    KeyValue=SettingDefault.BizTalkTelephone},
+                new DefaultValue() { KeyName="CountryCode",         KeyValue=SettingDefault.CountryCode},
+                
                 new DefaultValue() { KeyName="SenderKey",           KeyValue=SettingDefault.SenderKey },
-                new DefaultValue() { KeyName="OrgCode",             KeyValue=SettingDefault.OrgCode },
-                new DefaultValue() { KeyName="AdFlg",               KeyValue=SettingDefault.AdFlag },
+                new DefaultValue() { KeyName="Organization",        KeyValue=SettingDefault.Organization },
+                new DefaultValue() { KeyName="AdFlag",              KeyValue=SettingDefault.AdFlag },
                 new DefaultValue() { KeyName="Wide",                KeyValue=SettingDefault.Wide },
             };
             return result;
@@ -140,8 +143,33 @@ namespace ActiveBaseLibrary
             }
         }
 
+    }
 
+    internal static class SettingDefault : object
+    {
+        public const string AppName = @"ActiveSnsUsingKakaoTalk";
+        public const string AppVersion = @"202012.001";
+        public const string AppSettingPath = @"C:\Active\";
+        public const string AppCreateBy = @"home21cc@gmail.com";
+        public const string AppCreateDate = @"20201221";
+        public const string AppJsonFileName = @"ActiveSnsUsingKakaoTolk.json";
 
+        public const string Adminstartor = @"home21cc@gmail.com";
+        public const string AdminPassword = @"800022";
+        public const string BizTalkAPIServer = @"https://www.biztalk-api.com";
+        public const string BizTalkUserID = @"tkbend";
+        public const string BizTalkPassword = @"28fb33ae1e734429d896dd5901cc90978da559e1";
+        public const string BizTalkToken = @"";
+        public const string BizTalkExpire = @"1440";
+        public const string BizTalkAttachPath = @"C:\PAYLIST\";
+        public const string BizTalkEmail = @"support@biztalk.co.kr";
+        public const string BizTalkTelephone = @"02-552-0093";
+        
 
+        public const string CountryCode = "82";
+        public const string SenderKey = "";
+        public const string Organization = "총무";
+        public const string AdFlag = "N";
+        public const string Wide = "N";
     }
 }

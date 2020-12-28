@@ -2,9 +2,9 @@
 using System.IO;
 using System.Text;
 
-namespace ActiveBaseLibrary
+namespace ActiveCommonLibrary
 {
-    public class ErrorControls
+    public class Error
     {
         private static bool isWriteErrorMessage = true;
         static readonly StringBuilder mStringBuilder = new StringBuilder();

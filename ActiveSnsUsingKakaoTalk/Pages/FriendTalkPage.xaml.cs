@@ -1,10 +1,10 @@
 ﻿using ActiveBaseLibrary;
-using ActiveSnsUsingKakaoTalk.Models;
+
+using ActiveCommonLibrary;
+
+using ActiveSnsUsingKakaoTalk.Controllers;
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -15,8 +15,9 @@ namespace ActiveSnsUsingKakaoTalk.Pages
     /// </summary>
     public partial class FriendTalkPage : Window
     {
-        readonly Setting setting = new Setting();
-        DispatcherTimer timer = new DispatcherTimer();
+        readonly DispatcherTimer timer = new DispatcherTimer();
+        readonly BizTalkTokenController tokenController = new BizTalkTokenController();
+        readonly BizTalkFriendController friendController = new BizTalkFriendController();
         public FriendTalkPage()
         {
             InitializeComponent();
@@ -31,15 +32,12 @@ namespace ActiveSnsUsingKakaoTalk.Pages
             LblConnect.Style = FindResource("StyleBoldLabel") as Style;
             LblMessage.Style = FindResource("StyleBoldLabel") as Style;
 
-            txtBsId.Text = setting.GetDefaultValue("KakaoTalkId");
-            txtPassword.Text = setting.GetDefaultValue("KakaoTalkPassword");
-            txtExpire.Text = (Int32.Parse(setting.GetDefaultValue("KakaoTalkExpire")) * 60).ToString();
-            KakaoTokenModel kakaoToken = new KakaoTokenModel(txtBsId.Text
-                , txtPassword.Text
-                , txtExpire.Text);
-            var result = kakaoToken.GetToken();
-            txtRCode.Text = (string)result.responseCode;
-            txtToken.Text = (string)result.token;
+            txtBsId.Text = tokenController.GetBsid();
+            txtPassword.Text = tokenController.GetPassword();
+            txtExpire.Text = tokenController.GetExpire();
+            txtToken.Text = tokenController.GetToken();
+            txtRCode.Text = tokenController.GetResponseCode();
+
 
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new EventHandler(ExpireTimer_Tick);
@@ -51,20 +49,15 @@ namespace ActiveSnsUsingKakaoTalk.Pages
             int expireTime = Int32.Parse(txtExpire.Text);
             expireTime -= 1;
             txtExpire.Text = (expireTime).ToString();
+
+            if (BtnSendFriendTalk.IsEnabled == true && expireTime <= 0)
+                BtnSendFriendTalk.IsEnabled = false;
         }
 
-        private void SendFriendTalk_Click(object sender, RoutedEventArgs e)
-        {
-            FriendTalk friend = new FriendTalk();
-            string message = TBoxMessage.Text;
-            int attCode = 0;
-            string filePath = "이름_사번_전화번호_카카오계정.jpeg";
-            friend.SendFriendTalk(message, attCode, filePath);            
-        }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
-            if(timer != null)
+            if (timer != null)
             {
                 timer.Stop();
             }
@@ -73,15 +66,21 @@ namespace ActiveSnsUsingKakaoTalk.Pages
             this.Close();
         }
 
-        private void BtnConnect_Click(object sender, RoutedEventArgs e)
+        private void BtnReConnect_Click(object sender, RoutedEventArgs e)
         {
-            KakaoTokenModel kToken = new KakaoTokenModel();
-            var result = kToken.GetToken(txtBsId.Text.ToString()
-                , txtPassword.Text.ToString()
-                , txtExpire.Text.ToString());
-            txtRCode.Text = (string)result.responseCode;
-            txtToken.Text = (string)result.token;
-            txtExpire.Text = (Int32.Parse(setting.GetDefaultValue("KakaoTalkExpire")) * 60).ToString();
+            tokenController.RefreshToken();
+            txtBsId.Text = tokenController.GetBsid();
+            txtPassword.Text = tokenController.GetPassword();
+            txtExpire.Text = tokenController.GetExpire();
+            txtToken.Text = tokenController.GetToken();
+            txtRCode.Text = tokenController.GetResponseCode();
+            BtnSendFriendTalk.IsEnabled = true;
+        }
+
+        private void BtnSendFriendTalk_Click(object sender, RoutedEventArgs e)
+        {
+            friendController.SendFriendTalk(BizTalkKeyType.AppUserIdKey, "01045512319", "TestTitle", "TestMessage", 0, "Testfile.jpg");
+            txtRCode.Text = friendController.GetResponseCode();
         }
     }
 }
