@@ -155,10 +155,10 @@ namespace ActiveCommonLibrary
         public const string AppJsonFileName = @"ActiveSnsUsingKakaoTolk.json";
 
         public const string Adminstartor = @"home21cc@gmail.com";
-        public const string AdminPassword = @"800022";
+        public const string AdminPassword = @"";
         public const string BizTalkAPIServer = @"https://www.biztalk-api.com";
-        public const string BizTalkUserID = @"tkbend";
-        public const string BizTalkPassword = @"28fb33ae1e734429d896dd5901cc90978da559e1";
+        public const string BizTalkUserID = @"";
+        public const string BizTalkPassword = @"";
         public const string BizTalkToken = @"";
         public const string BizTalkExpire = @"1440";
         public const string BizTalkAttachPath = @"C:\PAYLIST\";
