@@ -79,7 +79,7 @@ namespace ActiveSnsUsingKakaoTalk.Pages
 
         private void BtnSendFriendTalk_Click(object sender, RoutedEventArgs e)
         {
-            friendController.SendFriendTalk(BizTalkKeyType.AppUserIdKey, "01045512319", "TestTitle", "TestMessage", 0, "Testfile.jpg");
+            var x = friendController.SendFriendTalk(BizTalkKeyType.AppUserIdKey, "01045512319", "TestTitle", "TestMessage", 0, "Testfile.jpg");
             txtRCode.Text = friendController.GetResponseCode();
         }
     }

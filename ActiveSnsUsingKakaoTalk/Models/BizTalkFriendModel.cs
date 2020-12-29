@@ -26,7 +26,6 @@ namespace ActiveSnsUsingKakaoTalk.Models
             };
         }
 
-
         public FriendResponseData SendFriendTalk(
             BizTalkKeyType keyType
             , string keyValue
@@ -35,37 +34,10 @@ namespace ActiveSnsUsingKakaoTalk.Models
             , int attCode
             , string filePath)
         {
-
             try
-            {
-                request.MsgIdx = GetMessageIndex();
-                if (keyType == BizTalkKeyType.AppUserIdKey)
-                    request.Receipient = keyValue;
-                if (keyType == BizTalkKeyType.RecipientKey)
-                    request.AppUserId = keyValue;
-                request.Message = message;
-                request.Attach = GetAttach(attCode, msgTitle, filePath);
-                string x = GetAttach(attCode, msgTitle, filePath);
-                if (keyType == BizTalkKeyType.UserKey)
-                    request.UserKey = keyValue;
-
+            {   
                 string reqUrl = BizTalkAPIServer + "/v2/kko/sendFriendTalk";
-                Dictionary<string, string> reqMessage = new Dictionary<string, string>
-                {
-                    {"msgIdx", request.MsgIdx },
-                    {"countryCode", request.CountryCode },
-                    {"recipient", request.Receipient },
-                    {"senderKey", request.SenderKey },
-                    {"appUserId", request.AppUserId },
-                    {"orgCode", request.OrgCode },
-                    {"message", request.Message },
-                    {"attach", request.Attach },
-                    {"userKey", request.UserKey },
-                    {"adFlag", request.AdFlag },
-                    {"wide", request.Wide },
-                };
-
-                string json = JsonConvert.SerializeObject(reqMessage, Formatting.Indented);
+                string json = GetJsonString(keyType, keyValue, msgTitle, message, attCode, filePath);
                 client.DefaultRequestHeaders.Add("bt-token", setting.GetDefaultValue("BizTalkToken"));
                 HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpResponseMessage resMessage = client.PostAsync(reqUrl, content).Result;
@@ -93,31 +65,136 @@ namespace ActiveSnsUsingKakaoTalk.Models
                 + time.ToString("ffffff");
         }
 
+        private string GetJsonString(BizTalkKeyType keyType
+            , string keyValue
+            , string msgTitle
+            , string message
+            , int attCode
+            , string filePath)
+        {
+            string startTag         = "{\r\n \"";
+            string contentTag       = "\":\"";
+            string contentAttTag    = "\":";
+            string chapterTag       = "\",\r\n \"";
+            string endTag           = "\r\n}";
+            StringBuilder result = new StringBuilder();
+            result.Append(startTag);
+
+            // MessageIndex
+            result.Append("msgIdx");
+            result.Append(contentTag);
+            result.Append(GetMessageIndex());
+            
+            // CountryCode
+            result.Append(chapterTag);
+            result.Append("countryCode");
+            result.Append(contentTag);
+            result.Append(setting.GetDefaultValue("CountryCode"));
+
+            // SenderKey
+            result.Append(chapterTag);
+            result.Append("senderKey");
+            result.Append(contentTag);
+            result.Append(setting.GetDefaultValue("SenderKey"));
+
+            // Organization
+            result.Append(chapterTag);
+            result.Append("orgCode");
+            result.Append(contentTag);
+            result.Append(setting.GetDefaultValue("Organization"));
+
+            // Mesage
+            result.Append(chapterTag);
+            result.Append("message");
+            result.Append(contentTag);
+            result.Append(message);
+
+            // AdFlag
+            result.Append(chapterTag);
+            result.Append("adFlag");
+            result.Append(contentTag);
+            result.Append(setting.GetDefaultValue("AdFlag"));
+
+            // Wide
+            result.Append(chapterTag);
+            result.Append("wide");
+            result.Append(contentTag);
+            result.Append(setting.GetDefaultValue("Wide"));
+
+            // Recipient, AppUserId, UserKey 
+            result.Append(chapterTag);
+            switch (keyType)
+            {
+                case BizTalkKeyType.RecipientKey:
+                    result.Append("recipient");
+                    break;
+                case BizTalkKeyType.AppUserIdKey:
+                    result.Append("appUserId");
+                    break;
+                case BizTalkKeyType.UserKey:
+                    result.Append("userKey");
+                    break;
+            }
+            result.Append(contentTag);
+            result.Append(keyValue);
+
+            // Attach 
+            result.Append(chapterTag);
+            result.Append("attach");
+            result.Append(contentAttTag);
+            result.Append(GetAttach(attCode, msgTitle, filePath));
+
+            result.Append(endTag);
+            return result.ToString();
+        }
+
         private string GetAttach(int attCode, string msgTitle, string filePath)
         {
+            string startTag         = "{\r\n\"";
+            string buttonStartTag   = "\":[\r\n{\r\n\"";
+            string buttonEndTag     = "\"\r\n}\r\n],\r\n\"";
+            string imageStartTag    = "\":{\r\n\"";
+            string contentTag       = "\":\"";
+            string chapterTag       = "\",\r\n\"";
+            string endTag           = "\"\r\n}\r\n}";
             StringBuilder result = new StringBuilder();
             switch (attCode)
             {
                 case 0:
-                    result.Append("{");
-                    result.Append("button:[");
-                    result.Append("{");
-                    result.Append("name:");
+                    result.Append(startTag);
+                    
+                    result.Append("button");
+                    result.Append(buttonStartTag);
+                    
+                    result.Append("name");
+                    result.Append(contentTag);
                     result.Append(msgTitle);
-                    result.Append(",");
-                    result.Append("type:WL,");
-                    result.Append("url_pc:http://www.tkbend.co.kr/,");
-                    result.Append("url_mobile:http://www.tkbend.co.kr/");
-                    result.Append("}");
-                    result.Append("],");
-                    result.Append("image:{");
-                    result.Append("image_url:http://bizmessage.kakao.com/");
+
+                    result.Append(chapterTag);
+                    result.Append("type");
+                    result.Append(contentTag);
+                    result.Append("WL");
+
+                    result.Append(chapterTag);
+                    result.Append("url_pc");
+                    result.Append(contentTag);
+                    result.Append("http://www.tkbend.co.kr/");
+
+                    result.Append(chapterTag);
+                    result.Append("url_mobile");
+                    result.Append(contentTag);
+                    result.Append("http://www.tkbend.co.kr/");
+                    
+                    result.Append(buttonEndTag);
+
+                    result.Append("image");
+                    result.Append(imageStartTag);
+                    result.Append("image_url");
+                    result.Append(contentTag);
+                    result.Append("https://github.com/home21cc/PayRolls/blob/main/myPayroll.jpg");
                     result.Append(filePath);
-                    result.Append(",");
-                    result.Append("image_link:http://bizmessage.kakao.com/");
-                    result.Append(filePath);
-                    result.Append("}");
-                    result.Append("}");
+
+                    result.Append(endTag);
                     break;
                 default:
                     break;
